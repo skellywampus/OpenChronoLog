@@ -46,5 +46,6 @@ OpenChronoLog is a compiled Python application that functions as a time clock fo
 
 ## Notes
 
+- Uncompiled python file is included for code auditing and modifications.
 - If scan_log.json or user_database.json are not found, the program will automatically create them when any data is entered.
 - The scan_log.json and user_database.json files are stored in the same directory as the program's executable and cannot be read by the program if they are moved.
