@@ -1,0 +1,408 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2761
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fswiss\fcharset0 Helvetica-Bold;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww12540\viewh16140\viewkind1\viewscale160
+\deftab720
+\pard\pardeftab720\ri0\qc\partightenfactor0
+
+\f0\fs48 \cf0 OpenChronoLog User Manual\
+\pard\pardeftab720\ri0\partightenfactor0
+
+\fs24 \cf0 \
+\pard\pardeftab720\ri0\partightenfactor0
+
+\fs32 \cf0 Introduction\
+\pard\pardeftab720\ri0\partightenfactor0
+
+\fs24 \cf0 \
+\pard\pardeftab720\ri0\partightenfactor0
+
+\f1\b \cf0 OpenChronoLog
+\f0\b0  is a user-friendly time-tracking application designed to help users clock in and out efficiently. This guide will walk you through the steps to use the application effectively, whether you're clocking in, adding new users, reviewing data, or making manual entries.\
+\
+\
+\pard\pardeftab720\ri0\partightenfactor0
+
+\fs32 \cf0 Table of Contents\
+\pard\pardeftab720\ri0\partightenfactor0
+
+\fs24 \cf0 \
+1. Getting Started\
+2. Main Interface Overview\
+3. Clocking In and Out\
+4. Adding a New User\
+5. Making a Manual Time Entry\
+6. Viewing Clocked-In Users\
+7. Reviewing Data\
+   - User List\
+   - Scan Log\
+   - Time Data\
+   - Exporting Data\
+8. Clocking Out All Users\
+9. Exiting the Application\
+10. Keyboard Shortcuts and Tips\
+11. Troubleshooting\
+\
+\
+\pard\pardeftab720\ri0\partightenfactor0
+
+\fs32 \cf0 Getting Started\
+\pard\pardeftab720\ri0\partightenfactor0
+
+\fs24 \cf0 \
+System Requirements\
+\
+- 
+\f1\b Operating System
+\f0\b0 : Windows 10, or Windows 11\
+- 
+\f1\b Disk
+\f0\b0  
+\f1\b Space
+\f0\b0 : Minimal; the application is lightweight\
+- 
+\f1\b Permissions
+\f0\b0 : Ability to run executable files\
+\
+Installation\
+\
+1. Obtain the Application:\
+   - Download the \'91exe\'92 file from Github.\
+\
+2. Save the Application:\
+   - Save the \'91exe\'92 file in a folder where you have read and write permissions, such as your Desktop or Documents folder.\
+\
+3. Prepare Data Files:\
+   - Upon first launch, the application will create two data files in the same directory:\
+     - `user_database.json`\
+     - `scan_log.json`\
+   - 
+\f1\b Important
+\f0\b0 : Do not move or delete these files, as they store user and time data.\
+\
+Launching the Application\
+\
+1. Navigate to the Application Location:\
+   - Use File Explorer to find the `OpenChronoLog.exe` file.\
+\
+2. Run the Application:\
+   - Double-click the `OpenChronoLog.exe` file.\
+   - If prompted with a security warning, click 
+\f1\b Run
+\f0\b0  or 
+\f1\b Yes
+\f0\b0  to allow the application to start.\
+\
+3. Application Startup:\
+   - The OpenChronoLog interface will appear in fullscreen mode, ready for use.\
+\
+\
+\pard\pardeftab720\ri0\partightenfactor0
+
+\fs32 \cf0 Main Interface Overview\
+\pard\pardeftab720\ri0\partightenfactor0
+
+\fs24 \cf0 \
+- Application Title: "OpenChronoLog" displayed prominently at the top.\
+- User ID Entry Field: Central text box labeled "Enter user ID."\
+- Submit Button: Below the entry field; click to submit your User ID.\
+- Success Message: "Entry was successful" appears briefly after a successful action.\
+- Clocked-In Users Label: Displays the number of users currently clocked in.\
+- View Button: Next to the clocked-in users label; click to see who is currently clocked in and optionally clock them out.\
+- Bottom Buttons:\
+  - Manual Entry: For manual time entries.\
+  - Add User: To add new users to the system.\
+  - Review: To access user lists, scan logs, time data, and export options.\
+- Close Button: Located at the top right; click to exit the application.\
+\
+\
+ 
+\fs32 Clocking In and Out\
+
+\fs24 \
+ Steps to Clock In or Out:\
+\
+1. Enter Your User ID:\
+   - Click on the "Enter user ID" field.\
+   - Type your assigned User ID.\
+   - A blinking cursor indicates the field is active.\
+\
+2. Submit Your Entry:\
+   - Press the `Enter` key on your keyboard or click the Submit button.\
+   - A success message will appear briefly.\
+\
+3. Automatic Status Update:\
+   - If you were clocked out, the system will clock you in.\
+   - If you were clocked in, the system will clock you out and calculate your work duration.\
+\
+4. Confirmation:\
+   - The number of users currently clocked in will update.\
+   - You can verify your status by clicking the View button.\
+\
+Note: Ensure your User ID is correct to avoid errors.\
+\
+\
+ 
+\fs32 Adding a New User\
+
+\fs24 \
+ Steps to Add a User:\
+\
+1. Access the Add User Function:\
+   - Click the Add User button at the bottom of the main interface.\
+\
+2. Enter User Details:\
+   - User ID: A prompt will ask for the new User ID. Enter a unique identifier (e.g., student number).\
+   - User Name: Next, enter the user's full name.\
+\
+3. Confirm Addition:\
+   - Click OK after each entry.\
+   - A confirmation message will confirm the user has been added.\
+\
+4. Error Handling:\
+   - If the User ID already exists or fields are left empty, an error message will appear.\
+   - Correct any mistakes and try again.\
+\
+\
+ 
+\fs32 Making a Manual Time Entry\
+
+\fs24 \
+Use this feature to log time for users who missed clocking in or out.\
+\
+ Steps for Manual Entry:\
+\
+1. Access the Manual Entry Function:\
+   - Click the Manual Entry button.\
+\
+2. Enter User ID:\
+   - When prompted, input the User ID of the user needing a manual entry.\
+\
+3. Enter Time In:\
+   - Input the clock-in time in `HH:MM:SS` format (e.g., `09:00:00`).\
+\
+4. Enter Time Out:\
+   - Input the clock-out time in the same format (e.g., `17:00:00`).\
+\
+5. Confirm Entry:\
+   - Click OK after each prompt.\
+   - A confirmation message will indicate success.\
+\
+6. Verification:\
+   - The manual entry will be added to the scan log.\
+\
+Note: Ensure times are accurate and in the correct format to avoid discrepancies.\
+\
+\
+ 
+\fs32 Viewing Clocked-In Users\
+
+\fs24 \
+ Steps to View and Manage Clocked-In Users:\
+\
+1. Click the View Button:\
+   - Located next to the clocked-in users label.\
+\
+2. Browse Clocked-In Users:\
+   - A window will display all users currently clocked in.\
+\
+3. Clock Out a User:\
+   - Select a user by clicking on their name.\
+   - Click the Clock Out Selected User button.\
+   - Confirm the action when prompted.\
+\
+4. Confirmation:\
+   - The user will be clocked out, and the main interface will update the clocked-in count.\
+\
+Note: Use this feature to manage users who may have forgotten to clock out.\
+\
+\
+ 
+\fs32 Reviewing Data\
+
+\fs24 \
+The Review section allows you to view and manage user and time data.\
+\
+ Accessing Review Options:\
+\
+1. Click the Review Button:\
+   - Located at the bottom of the main interface.\
+\
+2. Select an Option:\
+   - User List: View all registered users.\
+   - Scan Log: See all clock-in and clock-out entries.\
+   - Time Data: Calculate total worked hours within a date range.\
+   - Export Data: Export data to a CSV file.\
+\
+\
+ 
+\fs32 User List\
+
+\fs24 \
+1. Select User List:\
+   - In the Review window, click User List.\
+\
+2. Browse Users:\
+   - A new window will display all users with their IDs and names.\
+\
+3. Sort and Search:\
+   - Click on column headers to sort.\
+   - Use the scrollbar to navigate.\
+\
+\
+ 
+\fs32 Scan Log\
+
+\fs24 \
+1. Select Scan Log:\
+   - In the Review window, click Scan Log.\
+\
+2. Browse Entries:\
+   - View all clock-in/out events with timestamps and statuses.\
+\
+3. Modify an Entry:\
+   - Select an entry by clicking on it.\
+   - Click Modify Entry to change the time or status.\
+   - Input the new time (format: `YYYY-MM-DD HH:MM:SS`).\
+   - Input the new status (`clocked_in` or `clocked_out`).\
+   - Confirm the changes.\
+\
+4. Delete an Entry:\
+   - Select an entry by clicking on it.\
+   - Click Delete Entry to remove it.\
+   - Confirm deletion when prompted.\
+\
+Warning: Deleting entries cannot be undone. Proceed with caution.\
+\
+\
+ 
+\fs32 Time Data\
+
+\fs24 \
+1. Select Time Data:\
+   - In the Review window, click Time Data.\
+\
+2. Set Date Range:\
+   - Start Date: Choose the starting month and year.\
+   - End Date: Choose the ending month and year.\
+   - Click Today to set the end date to the current month and year.\
+\
+3. Calculate:\
+   - Click the Calculate button.\
+   - A new window will display total worked hours for each user within the selected range.\
+\
+4. Review Results:\
+   - Browse through the calculated data.\
+   - Sort by user ID, name, or time worked by clicking column headers.\
+\
+\
+ 
+\fs32 Exporting Data\
+
+\fs24 \
+1. Select Export Data:\
+   - In the Review window, click Export Data.\
+\
+2. Choose Save Location:\
+   - A dialog will prompt you to select a location to save the CSV file.\
+\
+3. Save the File:\
+   - Enter a filename and click Save.\
+   - A confirmation message will appear upon successful export.\
+\
+4. Accessing the File:\
+   - Navigate to the chosen location to open the CSV file with spreadsheet software (e.g., Excel).\
+\
+\
+ 
+\fs32 Clocking Out All Users\
+
+\fs24 \
+At the end of the day, you may need to clock out all users.\
+\
+ Steps to Clock Out All Users:\
+\
+1. Initiate the Command:\
+   - Right-click on the Submit button on the main interface.\
+\
+2. Confirm Action:\
+   - A prompt will ask, "Are you sure you want to clock out all users?"\
+   - Click Yes to proceed.\
+\
+3. Completion:\
+   - All users currently clocked in will be clocked out.\
+   - A success message will confirm the action.\
+\
+Note: This action should be performed responsibly, ideally at the end of the workday.\
+\
+\
+ 
+\fs32 Exiting the Application\
+
+\fs24 \
+ Steps to Exit:\
+\
+1. Click the Close Button:\
+   - Located at the bottom of the main interface.\
+\
+2. Confirm Exit:\
+   - A prompt will ask, "Do you want to quit?"\
+   - Click OK to exit.\
+\
+3. Using Keyboard Shortcut:\
+   - Press the `Escape` key to exit fullscreen mode.\
+   - Then close the window using the standard method (e.g., click the X button).\
+\
+\
+ 
+\fs32 Keyboard Shortcuts and Tips\
+
+\fs24 \
+- Fullscreen Mode:\
+  - Press `F11` to toggle fullscreen.\
+  - Press `Escape` to exit fullscreen.\
+\
+- Submitting Entries:\
+  - Press `Enter` after typing your User ID.\
+\
+- Focus on Entry Field:\
+  - The cursor defaults to the User ID field on startup and after each action.\
+\
+- Clocking Out All Users:\
+  - Right-click the Submit button for the clock-out-all function.\
+\
+- Navigating Tables:\
+  - Click column headers to sort data.\
+  - Use scrollbars to navigate through lists.\
+\
+\
+ 
+\fs32 Troubleshooting\
+
+\fs24 \
+- Error Messages:\
+  - Read any error prompts carefully; they indicate what needs to be corrected.\
+\
+- User Not Found:\
+  - Ensure the User ID is correct and the user is registered.\
+\
+- Invalid Time Format:\
+  - Enter times in the correct format during manual entries.\
+\
+- Duplicate User ID:\
+  - User IDs must be unique. Check existing IDs before adding a new user.\
+\
+- Application Not Launching:\
+  - Ensure you have permissions to run executable files.\
+  - If Windows blocks the application, you may need to adjust your security settings or run the application as an administrator.\
+\
+\
+\pard\pardeftab720\ri0\partightenfactor0
+
+\f1\b\fs32 \cf0 Thank you for using OpenChronoLog!\
+\pard\pardeftab720\ri0\partightenfactor0
+
+\f0\b0\fs24 \cf0 \
+\
+}
