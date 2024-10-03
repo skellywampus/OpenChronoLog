@@ -1,3 +1,5 @@
+![Main Menu Screenshot](https://github.com/skellywampus/OpenChronoLog/blob/main/openChronoLogScreenshot.png "Main Menu")
+
 # OpenChronoLog
 
 OpenChronoLog is a lightweight, user-friendly time-tracking application designed to help users efficiently clock in and out. It supports adding new users, reviewing data, making manual entries, and more. This application is perfect for small businesses, teams, or individuals looking to manage their work hours and user data.
