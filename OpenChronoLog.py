@@ -187,17 +187,24 @@ def review_action():
             start_date = f"{start_year.get()}-{start_month.get()}-01"
             end_date = f"{end_year.get()}-{end_month.get()}-31"
             total_time = {}
+            clock_in_times = {}
             for entry in scan_log:
-                if start_date <= entry["time"].split(" ")[0] <= end_date:
+                entry_date = entry["time"].split(" ")[0]
+                if start_date <= entry_date <= end_date:
                     user_id = entry["user_id"]
-                    total_time.setdefault(user_id, timedelta())
                     if entry["status"] == "clocked_in":
-                        clock_in_time = datetime.strptime(entry["time"], "%Y-%m-%d %H:%M:%S")
+                        clock_in_times[user_id] = datetime.strptime(entry["time"], "%Y-%m-%d %H:%M:%S")
                     elif entry["status"] == "clocked_out":
-                        clock_out_time = datetime.strptime(entry["time"], "%Y-%m-%d %H:%M:%S")
-                        total_time[user_id] += clock_out_time - clock_in_time
-            time_data_list = [{"user_id": uid, "name": find_user_by_id(uid)["name"], "time_worked": str(total)} for uid, total in total_time.items()]
-            display_data("Time Data", time_data_list, ["user_id", "name", "time_worked"])
+                        clock_in_time = clock_in_times.get(user_id)
+                        if clock_in_time:
+                            clock_out_time = datetime.strptime(entry["time"], "%Y-%m-%d %H:%M:%S")
+                            duration = clock_out_time - clock_in_time
+                            total_time.setdefault(user_id, timedelta())
+                            total_time[user_id] += duration
+                            del clock_in_times[user_id]
+            time_data_list = [{"user_id": uid, "name": find_user_by_id(uid)["name"], "time_worked": format_timedelta(total)} for uid, total in total_time.items()]
+            total_duration = sum(total_time.values(), timedelta())
+            display_data("Time Data", time_data_list, ["user_id", "name", "time_worked"], total_duration=total_duration)
 
         ttk.Button(time_data_window, text="Calculate", command=calculate_time_data).grid(row=2, column=0, columnspan=4, pady=10)
 
@@ -214,10 +221,26 @@ def review_action():
             except Exception as e:
                 messagebox.showerror("Export Failed", f"An error occurred: {e}")
 
+    def merge_external():
+        file_path = filedialog.askopenfilename(filetypes=[("JSON files", "*.json")])
+        if file_path:
+            try:
+                with open(file_path, "r") as f:
+                    external_log = json.load(f)
+                if isinstance(external_log, list):
+                    scan_log.extend(external_log)
+                    save_data()
+                    messagebox.showinfo("Merge Successful", "External log has been merged into the main scan log.")
+                else:
+                    messagebox.showerror("Invalid File", "The selected file does not contain a valid scan log.")
+            except Exception as e:
+                messagebox.showerror("Error", f"An error occurred while merging: {e}")
+
     ttk.Button(review_window, text="User List", command=show_user_list).pack(pady=5)
     ttk.Button(review_window, text="Scan Log", command=show_scan_log).pack(pady=5)
     ttk.Button(review_window, text="Time Data", command=show_time_data).pack(pady=5)
     ttk.Button(review_window, text="Export Data", command=export_data).pack(pady=5)
+    ttk.Button(review_window, text="Merge External", command=merge_external).pack(pady=5)
 
 def clock_out_all_users(event=None):
     if messagebox.askyesno("Confirm Clock Out", "Are you sure you want to clock out all users?"):
@@ -236,9 +259,17 @@ def clock_out_all_users(event=None):
         update_clocked_in_count()
         messagebox.showinfo("All Users Clocked Out", "All users have been clocked out.")
 
-def display_data(title, data, columns):
+def format_timedelta(td):
+    total_hours = td.total_seconds() / 3600
+    return f"{total_hours:.2f} hours"
+
+def display_data(title, data, columns, total_duration=None):
     data_window = tk.Toplevel(window)
     data_window.title(title)
+    if total_duration is not None:
+        formatted_total = format_timedelta(total_duration)
+        total_label = tk.Label(data_window, text=f"Total Time Worked: {formatted_total}", font=("Arial", 12))
+        total_label.pack()
     tree = ttk.Treeview(data_window, columns=columns, show='headings')
     for col in columns:
         tree.heading(col, text=col, command=lambda _col=col: sort_treeview_column(tree, _col, False))
