@@ -4,12 +4,12 @@ OpenChronoLog is a desktop time clock for volunteer groups and small workplaces.
 
 ## Get the app
 
-Download a packaged build from [GitHub Releases](https://github.com/skellywampus/OpenChronoLog/releases). Choose the Go edition asset for your platform:
+Download a packaged build from [GitHub Releases](https://github.com/skellywampus/OpenChronoLog/releases). The releases currently published there are for the previous Python application; do not mistake those assets for Go builds. The Go rewrite is being prepared for a separate release. Once published, its downloads will be named:
 
 - **macOS (Apple silicon):** `OpenChronoLog-macos-arm64.zip`. Unzip it and move `OpenChronoLog.app` to Applications or another convenient location.
 - **Windows (64-bit):** `OpenChronoLog.zip` (recommended) or `OpenChronoLog.exe`. Extract the ZIP before running the app.
 
-The Go rewrite is published separately from the older Python release assets. Use the latest Go release when choosing a download; older releases contain the previous Python application. macOS may ask you to confirm opening an app downloaded from the internet. Only download release files from this repository.
+Use these Go-specific assets from the Go release, not the similarly named assets on older Python releases. macOS may ask you to confirm opening an app downloaded from the internet. Only download release files from this repository.
 
 ## Features
 
@@ -62,7 +62,7 @@ The macOS app bundle is written under `dist/darwin-arm64/`; Windows artifacts ar
 
 ## Releases
 
-See [all releases and downloads](https://github.com/skellywampus/OpenChronoLog/releases). Go builds are distributed as platform-specific assets attached to the Go release; the repository source is also available from the release's **Source code** links. When updating the Go build, publish the macOS Apple-silicon ZIP and Windows 64-bit ZIP/EXE together so both platforms are available from the same release.
+See [all releases and downloads](https://github.com/skellywampus/OpenChronoLog/releases). The Go release should attach the macOS Apple-silicon ZIP and Windows 64-bit ZIP/EXE together so both platforms are available from the same release. The older Python releases remain available for users of the previous application.
 
 ## License
 
