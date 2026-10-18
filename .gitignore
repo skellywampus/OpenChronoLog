@@ -1,0 +1,10 @@
+.DS_Store
+build/
+dist/
+fyne-cross/
+*.previous
+*.previous-write
+user_database.json
+scan_log.json
+anomalies_approvals.json
+OpenChronoLog1.app/
