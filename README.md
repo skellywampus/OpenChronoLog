@@ -2,6 +2,8 @@
 
 OpenChronoLog is a desktop time clock for volunteer groups and small workplaces. Members can clock in with a badge or member ID, while coordinators can manage the member list, correct records, review anomalies, and export time reports. The application is written in Go with [Fyne](https://fyne.io/) and runs locally without a server or account.
 
+![OpenChronoLog Go app running on macOS](screenshots/time-clock.jpg)
+
 ## Get the app
 
 Download a packaged build from [GitHub Releases](https://github.com/skellywampus/OpenChronoLog/releases). The releases currently published there are for the previous Python application; do not mistake those assets for Go builds. The Go rewrite is being prepared for a separate release. Once published, its downloads will be named:
